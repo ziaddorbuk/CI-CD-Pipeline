@@ -472,7 +472,7 @@ jobs:
               --stack-status-filter CREATE_COMPLETE --no-paginate --output text)) 
               echo Stack names: "${STACKS[@]}"
         
-              if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]]
+              if [[ "${OldWorkflowID}" =~ "${STACKS[@]}"  ]]
               then
                 echo "in the if condition"
                 echo new "${CIRCLE_WORKFLOW_ID:0:7}"

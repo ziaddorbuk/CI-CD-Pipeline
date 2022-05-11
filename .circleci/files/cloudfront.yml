@@ -19,7 +19,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-          - DomainName: !Sub "${WorkFlowID}.s3-website-us-west-2.amazonaws.com"
+          - DomainName: !Sub "udapeople-${WorkFlowID}.s3-website-us-west-2.amazonaws.com"
             Id: webpage
             S3OriginConfig:
               OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}"

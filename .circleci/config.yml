@@ -393,7 +393,7 @@ jobs:
             BACKEND_IP=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --filters "Name=tag:project,Values=udapeople_backend" --output text)
             echo "${BACKEND_IP}"
             export URL=http://${BACKEND_IP}:3030
-            if curl $URL/api/status | grep "ok"
+            if curl $URL/api/status | grep "okzzzzz"
             then
               exit 0
             else

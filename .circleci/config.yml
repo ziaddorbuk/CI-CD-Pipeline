@@ -48,7 +48,8 @@ commands:
           name: Revert migrations
           when: on_fail
           command: |
-            if curl --insecure  https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7}
+            SUCCESS=$(curl --insecure  https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7})
+            if (( $SUCCESS == 1 ));
             then
               cd ~/project/backend
               npm install
@@ -380,6 +381,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - install_dependancies
       - run:
           name: install AWS
           command: |
